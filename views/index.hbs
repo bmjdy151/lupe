@@ -1,0 +1,89 @@
+<div class="Header">
+  <h1 class="topTitle">{{title}}</h1>
+  <div id="headForm-container">
+    <form id="headForm-subContainer" action="/auth/login" method="post">
+      <input type="text" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <button id="loginB" type="submit">Login</button>
+    </form>
+    <a href="">Forgot account?</a>
+  </div>
+</div>
+
+
+<div class="contents-container">
+  <div id="left-container">
+    <div id="title-container">
+      <h6>Build your vocabulary of any objects around you with Lupe.</h6>
+    </div>
+    <div id="sub-container">
+      <div class="subtitle-container">
+        <img src="/images/topImg1.png" alt="topImg1">
+        <p><b>Scan</b> the object in front of you.</p>
+      </div>
+      <div class="subtitle-container">
+        <img src="/images/topImg2.png" alt="topImg2">
+        <p><b>Identify</b> the object spell and pronunciation.</p>
+      </div>
+      <div class="subtitle-container">
+        <img src="/images/topImg3.png" alt="topImg3">
+        <p><b>Review</b> vocabulary with scan history and quiz.</p>
+      </div>
+    </div>
+    <div id="vimeo-container">
+        <video id="introvideo" autoplay loop muted playsinline src="/images/LUPE.mp4" poster="">  
+        </video>
+    </div>
+  </div>
+  <div id="right-container">
+    <h2>Sign Up</h2>
+    <p>It's quick and easy.</p>
+    <form action="/auth/register" method="post">
+      <div id="form-container">
+        <div class="subform-container">
+          <input class="nameInput" type="text" name="firstName" placeholder="First name">
+          <input class="nameInput" type="text" name="lastName" placeholder="Last name">
+        </div>
+        <input class="formInput" type="text" name="email" placeholder="Email">
+        <input class="formInput" type="password" name="password" placeholder="New password">
+        <label class="label" for="language">Language to learn</label>
+        <div id="langInput">
+          <select name="language">
+            <option value="Dutch">Dutch</option>
+            <option value="Eng-UK">English (UK)</option>
+            <option value="Eng-US">English (US) </option>
+            <option value="Japanese" selected>Japanese</option>
+            <option value="Spanish">Spanish</option>
+          </select> 
+        </div>
+        <label class="label" for="gender">Gender</label>
+        <div id="radioInput">
+          <div class="radioInput">
+            <input type="radio" id="female" name="gender" value="F">
+            <label for="female">Female</label>
+          </div>
+          <div class="radioInput">
+            <input type="radio" id="male" name="gender" value="M">
+            <label for="male">Male</label>
+          </div>
+          <div class="radioInput">
+            <input type="radio" id="custom" name="gender" value="C">
+            <label for="custom">Custom</label>
+          </div>
+        </div>
+      <div id="term-container">
+        <p id="termsp">By clicking Sign Up, you agree to our <a href="https://www.facebook.com/legal/terms/update">Terms</a>. Learn how we collect, use and share your data in our <a href="https://www.facebook.com/about/privacy/update">Data Policy</a>and how we use cookies and similar technology in our <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>. You may receive SMS Notifications from us and can opt out any time.</p>
+      </div> 
+      <button id="signupB"> Sign Up</button>
+      {{!-- <a href="#"><div id="signupB"> Sign Up</div></a> --}}
+      </div>
+    </form>
+    
+    {{!-- <div class="line"></div>
+    --}}
+  </div>
+</div>
+
+<div id="fbFooteer">
+  <p>LUPE © 2019</p>
+</div>
