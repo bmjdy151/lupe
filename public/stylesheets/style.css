@@ -310,19 +310,15 @@ a:hover {
 
 /* scan */
 
-#scan-container {            
-
-}
-
 #video {                  
-  width:100vw; 
-  height:100vh;
+  width:400px; 
+  height:300px;
   transform: scaleX(-1); 
 }
 
 #canvas {
-  width:500px; 
-  height:400px;
+  width:400px;
+  height:300px;
   transform: scaleX(-1);  
   position: absolute;    
   top: 0;                 

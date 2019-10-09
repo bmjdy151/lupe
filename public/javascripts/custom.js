@@ -26,22 +26,28 @@ $(document).ready(()=>{
   //scan
   $('#scan').click((e)=>{
     e.preventDefault();
-    e.preventPropagation();
+    // e.preventPropagation();
     console.log("scanned!"); 
     const ctx = canvas.getContext("2d"); 
-    let dataURL = canvas.toDataURL('image/png', 1.0);
-    console.log("jpg", dataURL);
+    let data = canvas.toDataURL('png');
+    console.log("imageURL", data);
     video.pause();
     setTimeout( () => {
       video.play();    // restart camera
     }, 500);
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    axios.post("/google", data).then(responseOfGoogle => {
-      //here is some nice stuff
-    }).catch(err => {
-      //probably goes wrong the first few tries
+    canvas.toBlob(function(blob){
+      const photo = new FormData();
+      photo.append('scan-img',blob,'filename.png');
+      axios.post("/google", photo).then(responseOfGoogle => {
+      }).catch(err => {
+        debugger
+        console.log(err);
+      })
     })
+
+
 
   })
 })
