@@ -8,6 +8,12 @@ const Scan = require("../models/Scan");
 const multer = require("multer");
 const fs = require('fs');
 
+//translate API
+const {Translate} = require('@google-cloud/translate');
+const translate = new Translate({projectId});
+//The target language
+const target = 'nl';
+
 // function to encode file data to base64 encoded string
 function base64_encode(file) {
   // read binary data
@@ -33,8 +39,8 @@ function pathToFile(filename) {
 
 const upload = multer({storage})
 router.post("/",upload.single("scan-img"),(req,res)=>{
-  var base64string = base64_encode(pathToFile(req.file.filename));
-  // Imports the Google Cloud client library
+  let base64string = base64_encode(pathToFile(req.file.filename));
+  //vision API
   const vision = require('@google-cloud/vision');
   // Creates a client
   const client = new vision.ImageAnnotatorClient();
@@ -51,6 +57,7 @@ router.post("/",upload.single("scan-img"),(req,res)=>{
     debugger;
     const labels = response[0].labelAnnotations;
     console.log('Labels:',labels);
+    console.log('text to translate', labels.description);
     const labelObjects = labels.map(label => {
       return { description: label.description, score: label.score }
     })
