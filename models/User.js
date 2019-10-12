@@ -22,7 +22,7 @@ const userSchema = new Schema({
     type: String
   },
   password: { type: String, required: true },
-  capture: [{ type: Schema.Types.ObjectId, ref: "Capture" }],
+  scan: [{ type: Schema.Types.ObjectId, ref: "Scan" }],
   profileImg: String
 });
 

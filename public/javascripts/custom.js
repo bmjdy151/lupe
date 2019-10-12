@@ -43,11 +43,8 @@ $(document).ready(()=>{
       axios.post("/google", photo).then(responseOfGoogle => {
       }).catch(err => {
         debugger
-        console.log(err);
+        console.log(err.response);
       })
     })
-
-
-
   })
 })

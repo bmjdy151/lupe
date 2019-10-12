@@ -12,6 +12,8 @@ const profileRouter = require("./routes/profile");
 const authorisationRouter = require("./routes/authorisation");
 const scanRouter = require("./routes/scan");
 const googleRouter = require("./routes/google");
+const scanplayRouter = require("./routes/scanplay");
+const libraryRouter = require("./routes/library");
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -67,6 +69,8 @@ app.use("/auth", authRouter);
 app.use("/profile", authorisationRouter, profileRouter);
 app.use("/scan", scanRouter);
 app.use("/google", googleRouter);
+app.use("/scanplay", scanplayRouter);
+app.use("/library", libraryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
