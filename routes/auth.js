@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
-  debugger;
+  // debugger;
   let currentUser;
   const { name, password } = req.body;
 

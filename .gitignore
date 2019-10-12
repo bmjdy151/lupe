@@ -1,0 +1,5 @@
+# Dependency directory
+# https://docs.npmjs.com/cli/shrinkwrap#caveats
+node_modules
+lupelupe-c7bc8e64b944.json
+.env

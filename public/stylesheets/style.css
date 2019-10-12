@@ -295,6 +295,8 @@ a:hover {
   display: flex;
   flex-flow:column nowrap;
   justify-content: center;
+  margin:5px;
+  box-shadow: 0px 6px 19px -11px #8386A3;
 }
 .itemElement img{
   margin-top:10%;
@@ -305,6 +307,7 @@ a:hover {
 .itemElement p{
   margin-top:4%;
   text-align: center;
+  color:#5B5E67;
 }
 
 
@@ -322,4 +325,33 @@ a:hover {
   transform: scaleX(-1);  
   position: absolute;    
   top: 0;                 
+}
+
+
+/* scanplay */
+#scanplay-container{
+  display: flex;
+  flex-flow:row wrap;
+  margin-top:10%;
+  justify-content: center;
+}
+.scanobj-container{
+  border-radius: 10px;
+  background-color: white;
+  width:400px;;
+  height:400px;
+  display: flex;
+  flex-flow:column nowrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 19px -11px #8386A3;
+}
+.scanobj-container p{
+  text-align: center;
+  color:#5B5E67;
+  font-weight: bold;
+}
+#speaker{
+  width:40px;
+  height:40px;
 }

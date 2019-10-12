@@ -30,7 +30,7 @@ $(document).ready(()=>{
     console.log("scanned!"); 
     const ctx = canvas.getContext("2d"); 
     let data = canvas.toDataURL('png');
-    console.log("imageURL", data);
+    // console.log("imageURL", data);
     video.pause();
     setTimeout( () => {
       video.play();    // restart camera
@@ -38,13 +38,27 @@ $(document).ready(()=>{
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     canvas.toBlob(function(blob){
+      
       const photo = new FormData();
       photo.append('scan-img',blob,'filename.png');
-      axios.post("/google", photo).then(responseOfGoogle => {
-      }).catch(err => {
-        debugger
-        console.log(err.response);
+      
+      axios.post("/google", photo)
+      .then(response => {
+        console.log(response)
+        window.location = "/scanplay";
       })
+      .catch(function(err) {
+        debugger;
+        console.log(err);
+      })
+  
+      // .then(responseOfGoogle => {
+      //   console.log("responseOfGoogle",responseOfGoogle);
+      //   axios.get("/scanplay");
+      // }).catch(err => {
+      //   debugger
+      //   console.log(err.response);
+      // })
     })
   })
 })

@@ -5,9 +5,10 @@ const User = require("../models/User");
 router.get("/", (req, res) => {
   // debugger;
   User.findById(req.session.user._id)
+    .populate("scan")
     .then(user => {
-      // debugger;
-      res.render("profile", { user: user });
+      debugger;
+      res.render("profile", { user: user});
     });
 });
 

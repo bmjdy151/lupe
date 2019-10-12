@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const scanSchema = new Schema({
   name: String,
   path: String,
-  labels:{
+  labels: [{
     description:String,
     score:Number
-  },
+  }],
   user: { type: Schema.Types.ObjectId, ref: "User" }
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

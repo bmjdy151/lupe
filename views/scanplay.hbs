@@ -1,19 +1,15 @@
 <div class="Header">
   <a class="headLeft" href="/profile"></a>
-  <h1 class="Title">Scanned Object</h1>
+  <h1 class="Title">{{scan.labels.0.description}}</h1>
   <a class="headRight" href="/library">Done</a>
 </div>
 
 <div id="scanplay-container">
-  <div id="scanobj-container">
-    <img src="" alt="">
-    <p>{{scan}}</p>
-    {{!-- <ul>
-    {{#each scan}}
-      <li>{{this.description}}</li>
-      <li>{{this.score}}</li>
-    {{/each}}
-    </ul> --}}
+  <div class="scanobj-container">
+    <img id="speaker" src="/images/speaker.png" alt="">
+    <img src="/images/scan/{{scan.name}}" alt="">
+    <p> {{scan.labels.0.description}}</p>
+    <p>score: {{scan.labels.0.score}}</p>
   </div>
 
 </div>

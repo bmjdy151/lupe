@@ -50,30 +50,37 @@ router.post("/",upload.single("scan-img"),(req,res)=>{
   .then(response => {
     debugger;
     const labels = response[0].labelAnnotations;
-    console.log('Labels:');
+    console.log('Labels:',labels);
     const labelObjects = labels.map(label => {
       return { description: label.description, score: label.score }
     })
-    labels.forEach(label => 
-
-      console.log('name:',label.description+", "+'score:',label.score)
+    debugger;
+    Scan.create({
+      name: req.file.filename,
+      path: req.file.path,
+      labels:labelObjects,
+      user: id
+    })
+    .then(scan => {
+      debugger;
+      return User.findByIdAndUpdate(
+        id,
+        { $push: { scan: scan._id } },
+        { new: true }
       );
-  //   Scan.create({
-  //     name: labels[0].description,
-  //     // labels:{
-  //     //   description:
-  //     //   score:Decimal128
-  //     // },
-  //     user: id
-  //   })
-  //   .then(scan => {
-  //     debugger;
-  //     return User.findByIdAndUpdate(
-  //       id,
-  //       { $push: { scan: scan._id } },
-  //       { new: true }
-  //     );
-  //   })
+    })
+    .then(user =>{
+      debugger;
+      console.log(user);
+      res.send(200);
+    })
+    // .then(response =>{
+    //   debugger;
+    //   res.redirect("/scanplay");
+    // })   
+    // labels.forEach(label => 
+    //   console.log('name:',label.description+", "+'score:',label.score)
+    //   );
   })
   .catch(err => {
     console.error(err);
