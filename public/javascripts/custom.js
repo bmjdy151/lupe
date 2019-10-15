@@ -51,14 +51,61 @@ $(document).ready(()=>{
         debugger;
         console.log(err);
       })
-  
-      // .then(responseOfGoogle => {
-      //   console.log("responseOfGoogle",responseOfGoogle);
-      //   axios.get("/scanplay");
-      // }).catch(err => {
-      //   debugger
-      //   console.log(err.response);
-      // })
     })
   })
+
+  //speech
+  $(function(){
+    if ('speechSynthesis' in window) {
+      console.log("speech is ready");
+      
+      const voiceSelect = document.querySelector('#voice-select');
+      // selectタグの中身を声の名前が入ったoptionタグで埋める
+      function appendVoices() {
+        const voices = speechSynthesis.getVoices()
+        voiceSelect.innerHTML = ''
+        voices.forEach(voice => { 
+          if(!voice.lang.match('ja|en-US|nl')) return
+          const option = document.createElement('option')
+          option.value = voice.name
+          option.text  = `${voice.name} (${voice.lang})` 
+          option.setAttribute('selected', voice.default)
+          voiceSelect.appendChild(option)
+        });
+      }
+      appendVoices();
+      speechSynthesis.onvoiceschanged = e => {
+        appendVoices()
+      }
+      
+  
+      $('#speak').click(function(e){
+        e.preventDefault();
+        console.log("speaking");
+        let text = document.getElementById('message').innerHTML;
+        console.log("text",text);
+        const msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        msg.voice = speechSynthesis
+        .getVoices()
+        .filter(voice => voice.name === voiceSelect.value)[0]
+        speechSynthesis.speak(msg);
+
+        // var msg = new SpeechSynthesisUtterance();
+        // var voices = window.speechSynthesis.getVoices();
+        // msg.voice = voices[$('#voices').val()];
+        // msg.rate = $('#rate').val() / 10;
+        // msg.pitch = $('#pitch').val();
+        // msg.text = text;
+  
+        // msg.onend = function(e) {
+        //   console.log('Finished in ' + event.elapsedTime + ' seconds.');
+        // };
+        // speechSynthesis.speak(msg);
+      })
+    } else {
+      $('#modal1').openModal();
+    }
+  });
+
 })

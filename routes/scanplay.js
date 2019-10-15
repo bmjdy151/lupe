@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
   .populate("scan") 
   .then(user => {
     debugger;
+    res.render("scanplay",{scan:user.scan[user.scan.length-1]});
   })
   .catch(err => {
     console.error(err);

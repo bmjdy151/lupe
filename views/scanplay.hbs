@@ -1,15 +1,28 @@
 <div class="Header">
   <a class="headLeft" href="/profile"></a>
   <h1 class="Title">{{scan.labels.0.description}}</h1>
-  <a class="headRight" href="/library">Done</a>
+  <a class="headRight" href="/profile">Done</a>
 </div>
 
 <div id="scanplay-container">
   <div class="scanobj-container">
-    <img id="speaker" src="/images/speaker.png" alt="">
+    <a id="speak" href=""><img id="speaker" src="/images/speaker.png" alt=""></a>
+    <div class="sel">
+      <select id="voice-select"></select>
+    </div>
     <img src="/images/scan/{{scan.name}}" alt="">
-    <p> {{scan.labels.0.description}}</p>
+    <p id="message"> {{scan.labels.0.description}}</p>
     <p>score: {{scan.labels.0.score}}</p>
   </div>
+</div>
 
+
+
+<div id="modal1" class="modal">
+  <h4>Speech Synthesis not supported</h4>
+  <p>Your browser does not support speech synthesis.</p>
+  <p>We recommend you use Google Chrome.</p>
+  <div class="action-bar">
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
+  </div>
 </div>

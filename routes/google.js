@@ -8,6 +8,8 @@ const Scan = require("../models/Scan");
 const multer = require("multer");
 const fs = require('fs');
 
+const projectId = "lupelupelupe";
+
 //translate API
 const {Translate} = require('@google-cloud/translate');
 const translate = new Translate({projectId});
@@ -38,6 +40,7 @@ function pathToFile(filename) {
 }
 
 const upload = multer({storage})
+
 router.post("/",upload.single("scan-img"),(req,res)=>{
   let base64string = base64_encode(pathToFile(req.file.filename));
   //vision API
@@ -54,13 +57,17 @@ router.post("/",upload.single("scan-img"),(req,res)=>{
   client
   .labelDetection(request)
   .then(response => {
-    debugger;
     const labels = response[0].labelAnnotations;
     console.log('Labels:',labels);
-    console.log('text to translate', labels.description);
+    console.log('text to translate', labels[0].description);
+    const text = labels[0].description;
+    debugger;
     const labelObjects = labels.map(label => {
       return { description: label.description, score: label.score }
     })
+    // const [translation] = await translate.translate(text, target);
+    // console.log(`Text: ${text}`);
+    // console.log(`Translation: ${translation}`);  
     debugger;
     Scan.create({
       name: req.file.filename,

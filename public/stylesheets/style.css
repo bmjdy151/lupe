@@ -40,11 +40,24 @@ a:hover {
   justify-content: center;
 }
 
-.Title{
+
+.topTitle{
   padding-top:20px;
   padding-left:9%;
   color:white;
   font-weight: bold;
+}
+.Title{
+  padding-top:20px;
+  color:white;
+  font-weight: bold;
+}
+
+.headRight{
+  color:white;
+  font-size:20px;
+  padding-top:3%;
+  padding-right: 2%;
 }
 
 
@@ -312,6 +325,39 @@ a:hover {
 
 
 /* scan */
+#video-container{
+  display:flex;
+  justify-content: center;
+}
+#button-container{
+  display:flex;
+  justify-content: center;
+}
+
+#scan{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(#50E6B5 0%, #42CEA0 100%);
+  background-image: linear-gradient(#50E6B5 0%, #42CEA0 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: solid 2px #b5b5b5;
+}
+
+#scan:active {/*onClick*/
+    background-image: -webkit-linear-gradient(#64F0C2 0%, #42CEA0 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
 
 #video {                  
   width:400px; 
@@ -324,7 +370,8 @@ a:hover {
   height:300px;
   transform: scaleX(-1);  
   position: absolute;    
-  top: 0;                 
+  top: 100;   
+  display:none;              
 }
 
 
@@ -339,7 +386,6 @@ a:hover {
   border-radius: 10px;
   background-color: white;
   width:400px;;
-  height:400px;
   display: flex;
   flex-flow:column nowrap;
   justify-content: center;
@@ -352,6 +398,49 @@ a:hover {
   font-weight: bold;
 }
 #speaker{
-  width:40px;
-  height:40px;
+  width:60px;
+}
+.sel {
+	overflow: hidden;
+	width: 90%;
+  text-align: center;
+  position: relative;
+  border:none;
+	/* border: 1px solid #42CEA0; */
+	border-radius: 10px;
+	background: #ffffff;
+}
+.sel select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+  appearance: none;
+  padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+.sel select::-ms-expand {
+	display: none;
+}
+
+.sel::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
 }
