@@ -60,6 +60,13 @@ a:hover {
   padding-right: 2%;
 }
 
+.headLeft{
+  color:white;
+  font-size:20px;
+  padding-top:4%;
+  padding-left: 2%
+}
+
 
 #headAddNew{
   font-size:50px;
@@ -321,6 +328,11 @@ a:hover {
   margin-top:4%;
   text-align: center;
   color:#5B5E67;
+  font-weight: bold;
+}
+
+#delete{
+  text-align: center;
 }
 
 
@@ -396,6 +408,24 @@ a:hover {
   text-align: center;
   color:#5B5E67;
   font-weight: bold;
+}
+
+#labels-container{
+  display: flex;
+  flex-flow:row nowrap;
+}
+.wordLabel{
+  background-color:#42CEA0;
+  color:white !important;
+  border-radius: 5px;
+  padding:2px 6px;
+  margin-top:5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.wordContents{
+  margin-top:8px;
+  margin-right: 5px;
 }
 #speaker{
   width:60px;

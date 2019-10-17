@@ -8,14 +8,6 @@ const Scan = require("../models/Scan");
 const multer = require("multer");
 const fs = require('fs');
 
-const projectId = "lupelupelupe";
-
-//translate API
-const {Translate} = require('@google-cloud/translate');
-const translate = new Translate({projectId});
-//The target language
-const target = 'nl';
-
 // function to encode file data to base64 encoded string
 function base64_encode(file) {
   // read binary data
@@ -58,16 +50,10 @@ router.post("/",upload.single("scan-img"),(req,res)=>{
   .labelDetection(request)
   .then(response => {
     const labels = response[0].labelAnnotations;
-    console.log('Labels:',labels);
-    console.log('text to translate', labels[0].description);
-    const text = labels[0].description;
     debugger;
     const labelObjects = labels.map(label => {
-      return { description: label.description, score: label.score }
+      return { description: label.description, score: label.score.toFixed(2)}
     })
-    // const [translation] = await translate.translate(text, target);
-    // console.log(`Text: ${text}`);
-    // console.log(`Translation: ${translation}`);  
     debugger;
     Scan.create({
       name: req.file.filename,

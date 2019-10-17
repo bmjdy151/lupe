@@ -14,6 +14,7 @@ const scanRouter = require("./routes/scan");
 const googleRouter = require("./routes/google");
 const scanplayRouter = require("./routes/scanplay");
 const libraryRouter = require("./routes/library");
+const logoutRouter = require("./routes/logout");
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -71,6 +72,7 @@ app.use("/scan", scanRouter);
 app.use("/google", googleRouter);
 app.use("/scanplay", scanplayRouter);
 app.use("/library", libraryRouter);
+app.use("/logout", logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

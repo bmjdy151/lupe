@@ -11,8 +11,16 @@
       <select id="voice-select"></select>
     </div>
     <img src="/images/scan/{{scan.name}}" alt="">
-    <p id="message"> {{scan.labels.0.description}}</p>
-    <p>score: {{scan.labels.0.score}}</p>
+    <div id="labels-container">
+      <p class="wordLabel">English</p>
+      <p class="wordContents" id="message">{{scan.labels.0.description}} </p>
+      <p class="wordLabel">Translation</p>
+      <p class="wordContents" id="translation">{{translation}} </p>
+    </div>
+    <div id="labels-container">
+      <p class="wordLabel">confidence score</p> 
+      <p class="wordContents" id="score">{{scan.labels.0.score}}</p>
+    </div>
   </div>
 </div>
 

@@ -54,6 +54,24 @@ $(document).ready(()=>{
     })
   })
 
+    // $('#delete').click((e)=>{
+    //   e.preventDefault();
+    //   // e.preventPropagation();
+    //   console.log("deleting!"); 
+    //   const del = new FormData();
+    //   del.append('id',)
+    //   axios.post("/google", photo)
+    //     .then(response => {
+    //       console.log(response)
+    //       window.location = "/scanplay";
+    //     })
+    //     .catch(function(err) {
+    //       debugger;
+    //       console.log(err);
+    //     })
+    // })
+  
+
   //speech
   $(function(){
     if ('speechSynthesis' in window) {
@@ -83,25 +101,16 @@ $(document).ready(()=>{
         e.preventDefault();
         console.log("speaking");
         let text = document.getElementById('message').innerHTML;
+        let translation = document.getElementById('translation').innerHTML;
         console.log("text",text);
+        console.log("translation",translation);
         const msg = new SpeechSynthesisUtterance();
-        msg.text = text;
+        // msg.text = text;
+        msg.text = translation;
         msg.voice = speechSynthesis
         .getVoices()
         .filter(voice => voice.name === voiceSelect.value)[0]
         speechSynthesis.speak(msg);
-
-        // var msg = new SpeechSynthesisUtterance();
-        // var voices = window.speechSynthesis.getVoices();
-        // msg.voice = voices[$('#voices').val()];
-        // msg.rate = $('#rate').val() / 10;
-        // msg.pitch = $('#pitch').val();
-        // msg.text = text;
-  
-        // msg.onend = function(e) {
-        //   console.log('Finished in ' + event.elapsedTime + ' seconds.');
-        // };
-        // speechSynthesis.speak(msg);
       })
     } else {
       $('#modal1').openModal();
