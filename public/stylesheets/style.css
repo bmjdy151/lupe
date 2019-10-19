@@ -56,25 +56,29 @@ a:hover {
 .headRight{
   color:white;
   font-size:20px;
-  padding-top:3%;
+  padding-top:30px;
   padding-right: 2%;
 }
 
 .headLeft{
   color:white;
   font-size:20px;
-  padding-top:4%;
+  padding-top:30px;
   padding-left: 2%
 }
 
+.setting img{
+  width: 35px;
+}
 
-#headAddNew{
+
+/* #headAddNew{
   font-size:50px;
   padding-top:5px;
   padding-right:15px;
   color:white;
   font-weight: bold;
-}
+} */
 
 #headForm-container{
   display: flex;
@@ -200,7 +204,7 @@ a:hover {
   margin-top:28px;
   font-weight: bold;
 }
-#form-container{
+.form-container{
   display:flex;
   flex-flow:column nowrap;
 }
@@ -231,7 +235,7 @@ a:hover {
   margin-top:10px;
   font-weight: bold;
 }
-#langInput select{
+.langInput select{
   border-width:1px;
   border-color: #BDC7D8;
 }
@@ -299,6 +303,53 @@ a:hover {
 }
 
 /* profile */
+
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.modal__bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+.modal__content{
+  overflow-y: auto;
+  max-height: 90vh;
+  background: #FAFCF7;
+  left: 50%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left:70%;
+  /* transform: translate(-50%,-50%); */
+  width: 50%;
+  border-radius: 10px;
+}
+
+.settingList{
+  border-radius: 4px;
+  padding:2px;
+  font-weight: bold;
+  font-size:20px;
+  color: #42CEA0;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+
+#langChange{
+  margin-top:20px;
+  border-radius: 6px;
+  color:white;
+  background-color: #42CEA0;
+  width:20%;
+  height:30px;
+}
 
 #itemList-container{
   display: flex;

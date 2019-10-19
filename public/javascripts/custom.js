@@ -54,22 +54,38 @@ $(document).ready(()=>{
     })
   })
 
-    // $('#delete').click((e)=>{
-    //   e.preventDefault();
-    //   // e.preventPropagation();
-    //   console.log("deleting!"); 
-    //   const del = new FormData();
-    //   del.append('id',)
-    //   axios.post("/google", photo)
-    //     .then(response => {
-    //       console.log(response)
-    //       window.location = "/scanplay";
-    //     })
-    //     .catch(function(err) {
-    //       debugger;
-    //       console.log(err);
-    //     })
-    // })
+  // $('#langChange').click((e)=>{
+  //   e.preventDefault();
+  //   debugger;
+  //   console.log("changing!"); 
+  //   const lang = new FormData();
+  //   lang.append('id',)
+  //   axios.post("/profile/lang", lang)
+  //     .then(response => {
+  //       console.log(response)
+  //       window.location = "/scanplay";
+  //     })
+  //     .catch(function(err) {
+  //       debugger;
+  //       console.log(err);
+  //     })
+  // })
+
+
+  //modal
+  $(function(){
+    $('.js-modal-open').on('click',function(){
+        let target = $(this).data('target');
+        let modal = document.getElementById(target);
+        console.log(modal);
+        $(modal).fadeIn();
+        return false;
+      });
+      $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+      });
+  });
   
 
   //speech
@@ -83,7 +99,7 @@ $(document).ready(()=>{
         const voices = speechSynthesis.getVoices()
         voiceSelect.innerHTML = ''
         voices.forEach(voice => { 
-          if(!voice.lang.match('ja|en-US|nl')) return
+          if(!voice.lang.match('ja|en-US|nl|es')) return
           const option = document.createElement('option')
           option.value = voice.name
           option.text  = `${voice.name} (${voice.lang})` 
@@ -110,6 +126,7 @@ $(document).ready(()=>{
         msg.voice = speechSynthesis
         .getVoices()
         .filter(voice => voice.name === voiceSelect.value)[0]
+        debugger;
         speechSynthesis.speak(msg);
       })
     } else {

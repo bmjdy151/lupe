@@ -33,11 +33,15 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
-  // debugger;
+  debugger;
   let currentUser;
-  const { name, password } = req.body;
-
-  User.findOne({ name })
+  // const { name, password } = req.body;
+  // const { email, password } = req.body;
+  const email = req.body.email;
+  const password = req.body.password;
+  debugger;
+  //User.findOne({ name })
+  User.findOne({ email })
     .then(user => {
       debugger;
       if (!user) {
